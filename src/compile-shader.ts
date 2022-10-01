@@ -27,7 +27,7 @@ export function compileShader(gl: WebGL2RenderingContext, vShaderText: string, f
     gl.linkProgram(program);
     //if not success, log the program info, and delete it.
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        alert(gl.getProgramInfoLog(program) + "");
+        alert(gl.getProgramInfoLog(program));
         gl.deleteProgram(program);
     }
 

@@ -1,4 +1,3 @@
-import { urlToHttpOptions } from "url";
 import { Shape, ShapeOptions } from "./shape";
 import { Vertex } from "./vertex";
 

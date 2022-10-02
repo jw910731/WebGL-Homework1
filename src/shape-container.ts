@@ -1,6 +1,6 @@
 import { Shape } from "./shapes/shape";
 
-export class ShapeContainerOption{
+export class ShapeContainerOption {
     renderType: number;
     context: WebGLRenderingContext;
 }
@@ -11,9 +11,10 @@ export class ShapeContainer {
     renderType: number;
     ctx: WebGLRenderingContext;
 
-    constructor(options: ShapeContainerOption){
+    constructor(options: ShapeContainerOption) {
         this.renderType = options.renderType;
         this.ctx = options.context;
+        this.elements = [];
     }
 
     get vertexCount(): number {
@@ -35,7 +36,7 @@ export class ShapeContainer {
         if (this.elements.length <= 0) {
             return;
         }
-
+        
         this.ctx.bufferData(this.ctx.ARRAY_BUFFER, this.binaryData, this.ctx.STATIC_DRAW);
         this.ctx.drawArrays(this.renderType, 0, this.vertexCount);
 

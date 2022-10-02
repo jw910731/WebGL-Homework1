@@ -10,6 +10,7 @@ export class Shape {
 
     constructor(options: ShapeOptions) {
         this.color = options.color;
+        this.vertice = [];
     }
 
     get vertexCount() {

@@ -8,4 +8,6 @@ if (!canvas) {
 
 const render = new Render(canvas);
 
+canvas.onmousedown = render.mouseEventListener.bind(render);
+document.onkeydown = render.keyEventListener.bind(render);
 window.addEventListener('resize', render.render.bind(render));

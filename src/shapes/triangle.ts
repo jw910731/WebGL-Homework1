@@ -2,10 +2,8 @@ import { Shape, ShapeOptions } from "./shape";
 import { Vertex } from "./vertex";
 
 export interface TriangleOptions extends ShapeOptions {
-    center: {
-        x: number;
-        y: number
-    };
+    x: number;
+    y: number
     size?: number;
 }
 
@@ -18,7 +16,10 @@ export class Triangle extends Shape {
 
     constructor(option: TriangleOptions) {
         super(option);
-        this.center = structuredClone(option.center);
+        this.center = {
+            x: option.x,
+            y: option.y,
+        };
         this.size = option.size || 10;
 
         this.vertice.push(

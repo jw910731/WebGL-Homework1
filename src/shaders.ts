@@ -1,8 +1,8 @@
 export const VSHADER_SOURCE = `
     uniform vec2 resolution;
-    uniform vec2 position;   
-    uniform float size;
-    uniform vec4 color; 
+    attribute vec2 position;   
+    attribute float size;
+    attribute vec4 color; 
 
     varying vec4 frag_color;
     void main(){

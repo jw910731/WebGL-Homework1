@@ -21,7 +21,7 @@ export class Render {
     currentColor: Array<number>;
     currentShape: 'p' | 'h' | 'v' | 't' | 'q';
 
-    binaryFormat: { attribLocation, dataType, dataTypeSize, count }[];
+    binaryFormat: { attribLocation: number, dataType: number, dataTypeSize: number, count: number }[];
 
 
     constructor(canvas: HTMLCanvasElement) {
@@ -30,10 +30,11 @@ export class Render {
         if (!gl) {
             throw new Error('Failed to get the rendering context for WebGL');
         }
+        this.ctx = gl;
 
         // compile shader and use program
-        this.compiledProgram = compileShader(gl, VSHADER_SOURCE, FSHADER_SOURCE);
-        this.ctx = gl;
+        this.compiledProgram = compileShader(this.ctx, VSHADER_SOURCE, FSHADER_SOURCE);
+
 
         this.ctx.useProgram(this.compiledProgram);
 
@@ -61,19 +62,19 @@ export class Render {
 
         this.binaryFormat = [
             {
-                attribLocation: this.ctx.getUniformLocation(this.compiledProgram, 'position'),
+                attribLocation: this.ctx.getAttribLocation(this.compiledProgram, 'position'),
                 dataType: this.ctx.FLOAT,
                 dataTypeSize: Float32Array.BYTES_PER_ELEMENT,
                 count: 2 // x, y
             },
             {
-                attribLocation: this.ctx.getUniformLocation(this.compiledProgram, 'size'),
+                attribLocation: this.ctx.getAttribLocation(this.compiledProgram, 'size'),
                 dataType: this.ctx.FLOAT,
                 dataTypeSize: Float32Array.BYTES_PER_ELEMENT,
                 count: 1
             },
             {
-                attribLocation: this.ctx.getUniformLocation(this.compiledProgram, 'color'),
+                attribLocation: this.ctx.getAttribLocation(this.compiledProgram, 'color'),
                 dataType: this.ctx.FLOAT,
                 dataTypeSize: Float32Array.BYTES_PER_ELEMENT,
                 count: 3 // r, g, b

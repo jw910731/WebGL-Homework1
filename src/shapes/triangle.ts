@@ -20,7 +20,7 @@ export class Triangle extends Shape {
             x: option.x,
             y: option.y,
         };
-        this.size = option.size || 10;
+        this.size = option.size || 30;
 
         this.vertice.push(
             new Vertex({
@@ -30,12 +30,12 @@ export class Triangle extends Shape {
             }),
             new Vertex({
                 x: this.center.x - (this.size * Math.sin(Math.PI / 6)),
-                y: this.center.y - (this.size * Math.cos(Math.PI / 6)),
+                y: this.center.y + (this.size * Math.cos(Math.PI / 6)),
                 color: this.color,
             }),
             new Vertex({
                 x: this.center.x + (this.size * Math.sin(Math.PI / 6)),
-                y: this.center.y - (this.size * Math.cos(Math.PI / 6)),
+                y: this.center.y + (this.size * Math.cos(Math.PI / 6)),
                 color: this.color,
             })
         )

@@ -7,6 +7,7 @@ export const VSHADER_SOURCE = `
     void main(){
         gl_Position = position;
         frag_color = color;
+        gl_PointSize = size;
     }
 `;
 export const FSHADER_SOURCE = `

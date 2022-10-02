@@ -1,4 +1,4 @@
-export function compileShader(gl: WebGL2RenderingContext, vShaderText: string, fShaderText: string) {
+export function compileShader(gl: WebGLRenderingContext, vShaderText: string, fShaderText: string) {
     //////Build vertex and fragment shader objects
     var vertexShader = gl.createShader(gl.VERTEX_SHADER) as WebGLShader;
     var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER) as WebGLShader;

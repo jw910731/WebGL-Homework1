@@ -3,11 +3,11 @@ import { FSHADER_SOURCE, VSHADER_SOURCE } from "./shaders";
 
 export class Render {
     canvas: HTMLCanvasElement;
-    ctx: WebGL2RenderingContext;
+    ctx: WebGLRenderingContext;
     compiledProgram: WebGLProgram;
 
     constructor(canvas: HTMLCanvasElement) {
-        const gl = canvas.getContext('webgl2') as WebGL2RenderingContext | null;
+        const gl = canvas.getContext('webgl2') as WebGLRenderingContext | null;
         if (!gl) {
             throw new Error('Failed to get the rendering context for WebGL');
         }

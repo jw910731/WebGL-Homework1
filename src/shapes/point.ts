@@ -18,7 +18,7 @@ export class Point extends Shape {
             new Vertex({
                 x: this.x,
                 y: this.y,
-                size: 1,
+                size: 3,
                 color: this.color
             }),
         )
